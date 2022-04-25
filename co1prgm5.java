@@ -1,70 +1,54 @@
 //Create CPU with attribute price. Create inner class Processor (no. of cores, manufacturer)
 //and static nested class RAM (memory, manufacturer). Create an object of CPU and print
 //information of Processor and RAM. 
-package program;
 import java.util.*;
-public class Cpu {
-	int price;
-	Scanner sc=new Scanner(System.in);
-	void read()
-	{
-		System.out.println("Enter price of cpu:");
-		price=sc.nextInt();
-	}
-	void disp()
-	{
-		System.out.println("price of cpu is:"+price);
-	}
-	public class Processor
-	{
-		int cores;
-		String manufacture;
-		void read()
-		{
-			System.out.println("Enter cores of processor:");
-			cores=sc.nextInt();
-			sc.nextLine();
-			System.out.println("Enter manufacture of processor:");
-			manufacture=sc.nextLine();
+public class cpu_pg5 {
+	class Processor{
+		int core;
+		String manu;
+		Processor(int cores,String manus){
+			core = cores;
+			manu = manus;
 		}
-		void disp()
-		{
-			System.out.println("The cores of processor is:"+cores);
-			System.out.println("The manufacturer of processor is:"+manufacture);
-			
-		}
-		public class Ram
-		{
-			int memory;
-			String manufacture;
-			void read()
-			{
-				System.out.println("Enter size of the ram:");
-				memory=sc.nextInt();
-				sc.nextLine();
-				System.out.println("Enter manufacturer of RAM:");
-				manufacture=sc.nextLine();
-			}
-			void disp()
-			{
-				System.out.println("The size of Ram is:"+memory);
-				System.out.println("The manufacturer of RAM is:"+manufacture);
-				
-			}
+		void out(){
+			System.out.println("No of cores : "+core);
+			System.out.println("Manufacturer : "+manu);
 		}
 	}
-		public static void main(String args[]){ 
-			Cpu ob=new Cpu();
-			ob.read();
-			ob.disp();
-			
-			Cpu.Processor ob1= ob.new Processor();
-			ob1.read();
-			ob1.disp();
-			Processor.Ram ob2=ob1.new Ram();
-			ob2.read();
-			ob2.disp();
-					
+	static class RAM{
+		static String mem,ram_manu;
+		RAM(String mems,String ram_manus){
+			mem = mems;
+			ram_manu = ram_manus;
+		}
+		void output(){
+			System.out.println("Memory : "+mem);
+			System.out.println("Manufacturer : "+ram_manu);
+		}
 	}
-
+	public static void main(String[] args){
+		int price,core;
+		String manu,mem,ram_manu;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the CPU details");
+		System.out.println("Enter the processor details");
+		System.out.print("Enter the no of cores");
+		core = in.nextInt();
+		in.nextLine();
+		System.out.print("Enter the manufacturer");
+		manu = in.nextLine();
+		System.out.println("Enter the RAM details");
+		System.out.print("Enter the memory capacity");
+		mem = in.nextLine();
+		System.out.print("Enter the manufacturer");
+		ram_manu = in.nextLine();
+		System.out.print("Enter the CPU price");
+		price = in.nextInt();
+		cpu_pg5 obj1 = new cpu_pg5();
+		cpu_pg5.Processor obj2 = obj1.new Processor(core,manu);
+		cpu_pg5.RAM obj3 = new cpu_pg5.RAM(mem,ram_manu);
+		obj2.out();
+		obj3.output();
+		System.out.println("Price of the CPU "+price);		
+	}
 }
