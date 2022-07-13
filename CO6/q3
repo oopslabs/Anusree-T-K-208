@@ -1,0 +1,25 @@
+package oops;
+import java.io.*;
+import java.io.File;
+import java.util.*;
+public class q3 {
+	public static void main(String args[])throws Exception {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the file:");
+		String file=sc.next();
+		System.out.println("Enter another file:");
+		String file2=sc.next();
+		sc.close();
+		FileReader fr= new FileReader(file);
+		FileWriter fw=new FileWriter(file2,true);
+		int i;
+		while((i=fr.read())!=-1)
+		{
+			fw.write(i);
+		}
+		System.out.println("copied sucessfully");
+		fr.close();
+		fw.close();
+	}
+
+}
