@@ -1,0 +1,41 @@
+package oops;
+import java.util.*;
+class negexec extends Exception{
+	negexec(String msg)
+	{
+	super(msg);
+}
+}
+public class negex {
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		int n,sum=0,avg,t=0;
+		System.out.println("Enter the limit:");
+		n=sc.nextInt();
+		System.out.println("Enter the numbers:");
+		try
+		{
+		for(int i=0;i<n;i++)
+		{
+			t=sc.nextInt();
+			if(t<0)
+			{
+				n++;
+				throw new  negexec("negative number entered");
+			}
+			else
+			{
+				sum=sum+t;
+			}
+		}
+		
+	}
+		catch(negexec e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println("Average of positive numbers is "+sum/n);
+}
+}
